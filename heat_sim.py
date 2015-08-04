@@ -32,7 +32,7 @@ q = 61000  # W/m^2
 h = 7.9  # W/Km^2
 Te = 300  # K Temperature of the ambient air
 k2 = 0.45  # second layer thermal conductivity (W/mK)
-alpha = 97.1*np.power(10, -6)  # m^2/s
+alpha = 97.1*(10e-6)  # m^2/s
 density = 2702  # kg/m^3
 c = 903  # j/(kgK)
 
