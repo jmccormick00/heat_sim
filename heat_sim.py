@@ -98,6 +98,13 @@ while True:
     if check(np.abs(grid-oldGrid)):
         break
 
-# plot the contour plot of the grid
-CS = plt.contour(grid)
+# plot the contour of the grid
+x_axis = np.linspace(0, panWidth, num=COLUMN)
+y_axis = np.linspace(0, panHeight, num=ROW)
+plt.contourf(x_axis, y_axis, grid)
+plt.colorbar()
+plt.xlabel("Width (m)")
+plt.ylabel("Height (m)")
+plt.title("Heat Distribution (K)")
+plt.grid()
 plt.show()
