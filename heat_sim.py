@@ -46,8 +46,8 @@ Zi = 4*k*d1 + U*delta*delta
 D = Te*U*delta*delta
 
 #--------------------------------------------------------------------------
-ROW = int(panHeight/delta + 1)
-COLUMN = int(panWidth/delta + 1)
+ROW = int(panHeight/delta) # +1
+COLUMN = int(panWidth/delta) # +1
 
 # Solve for where the Eye is in the Grid
 c1 = panHeight/2 - eyeHeight/2
@@ -68,27 +68,27 @@ while True:
     for i in xrange(ROW):
         for j in xrange(COLUMN):
             # Calculate the corners
-            if i == 0 & j == 0:  # Top left
+            if i == 0 and j == 0:  # Top left
                 grid[i, j] = (k*d1*(grid[i, j+1] + grid[i+1, j]) + D) / Xi
-            elif i == 0 & j == (COLUMN-1):  # Top right
+            elif i == 0 and j == (COLUMN-1):  # Top right
                 grid[i, j] = (k*d1*(grid[i, j-1] + grid[i+1, j]) + D) / Xi
-            elif i == (ROW-1) & j == 0:  # Bottom left
+            elif i == (ROW-1) and j == 0:  # Bottom left
                 grid[i, j] = (k*d1*(grid[i-1, j] + grid[i, j+1]) + D) / Xi
-            elif i == (ROW-1) & j == (COLUMN-1):  # Bottom Right
+            elif i == (ROW-1) and j == (COLUMN-1):  # Bottom Right
                 grid[i, j] = (k*d1*(grid[i-1, j] + grid[i, j-1]) + D) / Xi
 
             # Calculate the sides
-            elif i == 0 & j > 0 & j < (COLUMN-1):  # Top
+            elif i == 0 and j > 0 and j < (COLUMN-1):  # Top
                 grid[i, j] = (k*d1*(grid[i, j+1] + grid[i+1, j] + grid[i, j-1]) + D) / Yi
-            elif i == (ROW-1) & j > 0 & j < (COLUMN-1):  # Bottom
+            elif i == (ROW-1) and j > 0 and j < (COLUMN-1):  # Bottom
                 grid[i, j] = (k*d1*(grid[i, j+1] + grid[i-1, j] + grid[i, j-1]) + D) / Yi
-            elif j == 0 & i > 0 & i < (ROW-1):  # Left
+            elif j == 0 and i > 0 and i < (ROW-1):  # Left
                 grid[i, j] = (k*d1*(grid[i-1, j] + grid[i, j+1] + grid[i+1, j]) + D) / Yi
-            elif j == (COLUMN-1) & i > 0 & i < (ROW-1):  # Right
+            elif j == (COLUMN-1) and i > 0 and i < (ROW-1):  # Right
                 grid[i, j] = (k*d1*(grid[i-1, j] + grid[i, j-1] + grid[i+1, j]) + D) / Yi
 
             # Over the eye
-            elif i >= Eye[0] & i <= Eye[2] & j >= Eye[1] & j <= Eye[3]:
+            elif i >= Eye[0] and i <= Eye[2] and j >= Eye[1] and j <= Eye[3]:
                 grid[i, j] = (k*d1*(grid[i-1, j] + grid[i, j-1] + grid[i+1, j] + grid[i, j+1]) + q*delta*delta + D) / Zi
 
             # outside the eye
@@ -99,5 +99,5 @@ while True:
         break
 
 # plot the contour plot of the grid
-CS = plt.contour()
+CS = plt.contour(grid)
 plt.show()
