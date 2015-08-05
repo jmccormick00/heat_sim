@@ -10,8 +10,8 @@ def check(res):
 
 #--------------------------------------------------------------------------
 # Pan width and hight
-panHeight = 0.3075  # m
-panWidth = 0.3075  # m
+panHeight = 0.30  # m
+panWidth = 0.30  # m
 eyeWidth = 0.2  # m
 eyeHeight = 0.2  # m
 delta = 0.0025
@@ -30,7 +30,7 @@ d2 = 0.0001  # m
 k = 236  # W/mK
 q = 61000  # W/m^2
 h = 7.9  # W/Km^2
-Te = 300  # K Temperature of the ambient air
+Te = 273.15  # K Temperature of the ambient air
 k2 = 0.45  # second layer thermal conductivity (W/mK)
 alpha = 97.1*(10e-6)  # m^2/s
 density = 2702  # kg/m^3
