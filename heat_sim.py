@@ -10,8 +10,8 @@ def check(res):
 
 #--------------------------------------------------------------------------
 # Pan width and hight
-panHeight = 0.30  # m
-panWidth = 0.30  # m
+panHeight = 0.40  # m
+panWidth = 0.40  # m
 eyeWidth = 0.2  # m
 eyeHeight = 0.2  # m
 delta = 0.0025
